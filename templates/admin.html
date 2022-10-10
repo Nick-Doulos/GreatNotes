@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Great Notes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    padding-top: 3em;
+    }
+    form {
+      width: 600px;
+      display: grid;
+      text-align: center;
+      justify-content: center;
+      border: 5px solid #f1f1f1;
+    }
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 16px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+    h1 {
+    text-align: center;
+    font-size:18;
+    }
+    .formcontainer {
+    margin: 24px 50px 12px;
+    }
+    .container {
+    padding: 20px 0;
+    text-align: center;
+    }
+    .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    background: #ff7300;
+    color: white;
+    font-size: 30px;
+    }
+    .logoutLblPos{
+    position:absolute;
+    right:10px;
+    top:5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Great Notes</h1>
+    <p>Admin</p>
+  </div>
+
+  <form align="right" action="/admin/logout" method="POST" name="logOut_Form">
+    <label class="logoutLblPos">
+      <input style="background-color: white; color: #ff7300; padding: 14px 0;
+      margin: 10px 0; padding: 1em; border: none; cursor: grabbing; width: 100%;" type="submit" value="Log-Out">
+    </label>
+  </form>
+
+  <div><h1>Great Notes</h1><h1>Great Notes</h1></div>
+
+  <h3 style="color: darkred;">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </h3>
+
+<div class="container">
+  <form action="/admin/insertAdmin" method="POST" name="insertAdmin_form">
+      
+    <h1>Insert a new Admin</h1>
+    
+    <div class="formcontainer">
+
+      <div class="container">
+
+        <label for="name">Name</label>
+        <input type="text" name="name" class="field" required>
+
+        <label for="email">Email</label>
+        <input type="text" name="email" class="field" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" class="field" required>
+              
+      </div>
+
+      <input style="background-color: #ff7300; color: white; padding: 14px 0;
+      margin: 10px 0; border: none; cursor: grabbing; width: 100%;" type="submit" value="Register Admin">
+
+  </form>
+</div>
+
+<div class="container">
+  <form action="/admin/deleteUser" method ="POST" name="deleteUser_form">
+      
+    <h1>Delete a User</h1>
+    
+    <div class="formcontainer">
+
+    <div class="container">
+
+      <label for="name">User's Name:</label>
+      <input type="text" name="name" class="field" required>
+            
+    </div>
+
+    <input style="background-color: #ff7300; color: white; padding: 14px 0;
+    margin: 10px 0; border: none; cursor: grabbing; width: 100%;" type="submit" value="Delete User">
+
+  </form>
+</div>
+  
+</body>
+</html>

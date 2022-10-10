@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Great Notes</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      display: grid;
+      text-align: center;
+      justify-content: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 15px;
+      padding-top: 3em;
+      }
+      form {
+      border: 5px solid #f1f1f1;
+      }
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 16px 8px;
+      margin: 8px 0;
+      display: inline-block;
+      text-align: center;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      h1 {
+      text-align: center;
+      text-align:center;
+      font-size:18;
+      }
+      .formcontainer {
+      margin: 24px 50px 12px;
+      }
+      .container {
+      padding: 16px 0;
+      text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <form action="/authentication/signIn" method="POST" name="signIn_form">
+      
+      <h1>Login Form</h1>
+      
+      <div class="formcontainer">
+
+      <div class="container">
+
+        <label for="email">Email</label>
+        <input type="text" name="email" class="field" required>
+      
+        <label for="password">Password</label>
+        <input type="password" name="password" class="field" required>
+              
+      </div>
+
+      <input style="background-color: #ff7300; color: white; padding: 14px 0;
+      margin: 10px 0; border: none; cursor: grabbing; width: 100%;" type="submit" value="Log-In">
+
+      <div class="container" style="background-color: #eee">
+
+        <span class="psw"><a href="/authentication/signUp">Register</a></span>
+      
+      </div>
+
+    </form>
+
+    <h3 style="color: darkred;">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </h3>
+
+  </body>
+
+</html>

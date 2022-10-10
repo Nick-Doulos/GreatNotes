@@ -1,0 +1,20 @@
+[
+	{
+		"name": "Nick Doulos",
+		"email": "university@nickdoulos.com",
+        	"password": "admin",
+		"category": "admin"
+	},
+	{
+		"name": "Max Verstappen",
+		"email": "champ@email.com",
+        	"password": "33",
+		"category": "user"
+	},
+	{
+		"name": "Magnus Carlsen",
+		"email": "chess@email.com",
+        	"password": "1234",
+		"category": "user"
+	}
+]

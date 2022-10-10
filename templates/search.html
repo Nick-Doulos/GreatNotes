@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Great Notes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    padding-top: 3em;
+    }
+    form {
+      width: 600px;
+      display: grid;
+      text-align: center;
+      justify-content: center;
+      border: 5px solid #f1f1f1;
+    }
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 16px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+    h1 {
+    text-align: center;
+    font-size:18;
+    }
+    .formcontainer {
+    margin: 24px 50px 12px;
+    }
+    .container {
+    padding: 5px 0;
+    text-align: center;
+    }
+    .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    background: #ff7300;
+    color: white;
+    font-size: 30px;
+    }
+    .logoutLblPos{
+    position:absolute;
+    right:10px;
+    top:5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Great Notes</h1>
+    <p>User</p>
+  </div>
+
+  <div><h1>Great Notes</h1><h1>Great Notes</h1></div>
+
+  <form align="right" action="/user/back" method="POST" name="back_Form">
+    <label class="logoutLblPos">
+      <input style="background-color: white; color: #ff7300; padding: 14px 0;
+      margin: 10px 0; padding: 1em; border: none; cursor: grabbing; width: 100%;" type="submit" value="Back">
+    </label>
+  </form>
+  
+{% for note in notes %}
+<div class="container">
+  <form action="/admin/searchMovie" method="GET" name="note_form">
+      
+    <h1>Note</h1>
+    
+    <div class="formcontainer">
+
+      <div class="container">
+
+        <strong>Title:</strong><br> {{ note.title }}<br>
+        <strong>Key Words:</strong><br> {{ note.keywords }}<br>
+        <strong>Note:</strong><br> {{ note.note }}<br>
+              
+      </div>
+
+  </form>
+</div>
+{% endfor %}
+  
+</body>
+</html>
